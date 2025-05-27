@@ -81,7 +81,7 @@ public class Vehiculo { // Clase madre
                + "Modelo: " + modelo + "\n" 
                + "Año: " + year + "\n" 
                + "Precio: " + precio + "\n"
-               + "Transmision: " + transmision;
+               + "Transmision: " + (transmision ? "Automatica" : "Estandar");
     }
     
     public void actualizarDatos(String marca, String modelo, int year, double precio, boolean transmision){

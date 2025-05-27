@@ -546,18 +546,17 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Vehiculo vehiculo = crearObjeto(); // Se crea el objeto
-
         try {
             if (vehiculo != null) {
-                archivo.guardar(vehiculo, rutaArchivo);
+                archivo.guardarLinea(vehiculo.obtenerDatos() + "\n---", rutaArchivo);
                 JOptionPane.showMessageDialog(this, "Vehículo guardado exitosamente.");
-            } 
+            }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Verifica que todos los campos numéricos estén bien llenados.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
@@ -621,8 +620,8 @@ public class FrmRegistro extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private Vehiculo crearObjeto() throws NumberFormatException {
         if (!rdbtnCarro.isSelected() && !rdbtnMoto.isSelected() && !rdbtnTrailer.isSelected()) {
-        JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de vehículo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        return null;
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de vehículo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return null;
         }
 
         // Datos de la clase madre
